@@ -1,7 +1,15 @@
-import { Controller } from "@nestjs/common";
-import { AppService } from "./app.service";
+import { Body, Controller, Post } from "@nestjs/common";
+import { AppDto } from "./dto";
 
-@Controller()
+@Controller("app")
 export class AppController {
-  constructor(private appService: AppService) {}
+  constructor() {}
+
+  @Post()
+  async makeProcess(@Body() { username, email, productCategoriesIds }: AppDto) {
+    return {
+      message: "All data are valid",
+      data: { username, email, productCategoriesIds },
+    };
+  }
 }
