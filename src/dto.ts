@@ -12,20 +12,21 @@ import IsUsedUsername from "./custom-validators/IsUsedUsername";
 import IsValidProductCategoryIdArray from "./custom-validators/IsValidProductCategoryIdArray";
 
 export class AppDto {
-  @IsNotEmpty()
-  @IsString()
+  @Validate(IsUsedUsername)
   @MaxLength(100)
   @MinLength(2)
-  @Validate(IsUsedUsername)
+  @IsString()
+  @IsNotEmpty()
   username: string;
 
-  @IsNotEmpty()
-  @IsEmail()
+  
   @Validate(IsUsedEmail)
+  @IsEmail()
+  @IsNotEmpty()
   email: string;
 
-  @IsNotEmpty()
-  @IsArray()
   @Validate(IsValidProductCategoryIdArray)
+  @IsArray()
+  @IsNotEmpty()
   productCategoriesIds: number[] | string[];
 }
