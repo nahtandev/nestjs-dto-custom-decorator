@@ -5,7 +5,7 @@ import {
 } from "class-validator";
 
 @ValidatorConstraint({ name: "email", async: true })
-export default class IsUsedEmail implements ValidatorConstraintInterface {
+export default class IsNotUsedEmail implements ValidatorConstraintInterface {
   async validate(value: any, args: ValidationArguments): Promise<boolean> {
     return validateUserEmail(value);
   }

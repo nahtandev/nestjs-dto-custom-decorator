@@ -12,7 +12,7 @@ import IsUsedUsername from "./custom-validators/IsUsedUsername";
 import IsValidProductCategoryIdArray from "./custom-validators/IsValidProductCategoryIdArray";
 
 export class AppDto {
-  @Validate(IsUsedUsername)
+  @Validate(IsNotUsedUsername)
   @MaxLength(100)
   @MinLength(2)
   @IsString()
@@ -20,7 +20,7 @@ export class AppDto {
   username: string;
 
   
-  @Validate(IsUsedEmail)
+  @Validate(IsNotUsedEmail)
   @IsEmail()
   @IsNotEmpty()
   email: string;
